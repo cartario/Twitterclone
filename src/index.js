@@ -7,11 +7,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import {theme} from './theme.js';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 

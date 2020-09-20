@@ -5,10 +5,11 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import SignInModal from './signin-modal';
+import SignUpModal from './signup-modal';
 
 const useStyles = makeStyles((theme)=>({
-  wrapper: {
-    
+  wrapper: {    
     display: `flex`,
     height: `100vh`,
     border: `1px solid grey`,
@@ -34,8 +35,7 @@ const useStyles = makeStyles((theme)=>({
       alignItems: `center`,
     },
   },
-  blueSideListIcon: {
-    
+  blueSideListIcon: {    
     marginRight: 10,
   },
   blueSideBigIcon: {
@@ -45,29 +45,32 @@ const useStyles = makeStyles((theme)=>({
     width: `250%`,
     height: `250%`,
     transform: `translate(-50%, -50%)`,
-
   },
   loginSide: {
     display: `flex`,
     justifyContent: `center`,
     alignItems: `center`,
     flex: `0 0 50%`,
-    backgroundColor: `white`,
-    
+    backgroundColor: `white`,    
   }, 
   loginSideWrapper: {
-    maxWidth: `80%`,
-    
+    maxWidth: `80%`,    
   }, 
   button: {    
     margin: `5px auto`,
     boxSizing: `border-box`,
     borderRadius: `25px`, 
   },
+  signUpButton: {
+    marginBottom: theme.spacing(4),
+  },
 }));
 
 export default (props)=> {
   const classes = useStyles();
+
+  
+
   return (
     <div className={classes.wrapper}>
       <section className={classes.blueSide}>
@@ -96,9 +99,9 @@ export default (props)=> {
         <div className={classes.loginSideWrapper} style={{textAlign: `left`}}>          
           <TwitterIcon color="primary"/>          
           <Typography variant="h3">Title</Typography>
-          <Typography variant="h4">SmallSmaller titleSmaller titleer title</Typography>
-          <Button fullWidth className={classes.button} color="primary" variant="contained">Hello</Button>
-          <Button fullWidth className={classes.button} color="primary" variant="outlined">Hello</Button>
+          <Typography variant="h4">SmallSmaller titleSmaller titleer title</Typography>          
+          <SignUpModal title={`Зарегистрироваться`} classes={classes}/>      
+          <SignInModal title={`Войти`} classes={classes}/>
         </div>
       </section>      
     </div>

@@ -5,11 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core/styles';
 import {theme} from './theme.js';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
   <React.Fragment>
     <ThemeProvider theme={theme}>
-      <App />
+      <Router>
+        <App />
+      </Router>      
     </ThemeProvider>
   </React.Fragment>,
   document.getElementById('root')

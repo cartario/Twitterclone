@@ -1,11 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Container } from '@material-ui/core';
+import { Container, createStyles } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import InputBase from '@material-ui/core/InputBase';
 import NotificationsIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import MessageIcon from '@material-ui/icons/EmailOutlined';
 import BookmarkIcon from '@material-ui/icons/BookmarkBorderOutlined';
@@ -38,6 +40,18 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 32,
   },
 }));
+
+const BootstrapInput = withStyles((theme) => ({
+  
+  input: {
+    borderRadius: 40,
+    position: 'relative',
+    backgroundColor: `#ced4da`,
+    border: '1px solid #ced4da',
+    fontSize: 16,    
+    padding: '10px 12px',    
+  },
+}))(InputBase);
 
 const Home = () => {
   const classes = useStyles();
@@ -92,10 +106,17 @@ const Home = () => {
           </Paper>       
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>xs</Paper>
+          <Paper style={{height: `100%`}} className={classes.paper}>xs</Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs</Paper>
+          {/* <Paper className={classes.paper}> */}
+            <BootstrapInput              
+              label="Поиск"              
+              fullWidth
+              placeholder="Поиск по твиттеру"
+              
+            />
+          {/* </Paper> */}
         </Grid>
       </Grid>
     </Container>

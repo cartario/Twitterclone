@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/twitterclone/static/css/main.5f361e03.chunk.css",
-    "main.js": "/twitterclone/static/js/main.f0cbb5e6.chunk.js",
-    "main.js.map": "/twitterclone/static/js/main.f0cbb5e6.chunk.js.map",
+    "main.css": "/twitterclone/static/css/main.523f09c5.chunk.css",
+    "main.js": "/twitterclone/static/js/main.07f90ba5.chunk.js",
+    "main.js.map": "/twitterclone/static/js/main.07f90ba5.chunk.js.map",
     "runtime-main.js": "/twitterclone/static/js/runtime-main.fcf2b215.js",
     "runtime-main.js.map": "/twitterclone/static/js/runtime-main.fcf2b215.js.map",
-    "static/js/2.488bbb9f.chunk.js": "/twitterclone/static/js/2.488bbb9f.chunk.js",
-    "static/js/2.488bbb9f.chunk.js.map": "/twitterclone/static/js/2.488bbb9f.chunk.js.map",
+    "static/js/2.526c0220.chunk.js": "/twitterclone/static/js/2.526c0220.chunk.js",
+    "static/js/2.526c0220.chunk.js.map": "/twitterclone/static/js/2.526c0220.chunk.js.map",
     "index.html": "/twitterclone/index.html",
-    "precache-manifest.f0e38778286d12b40ee2ffea23caa6ab.js": "/twitterclone/precache-manifest.f0e38778286d12b40ee2ffea23caa6ab.js",
+    "precache-manifest.561a59942a4a34bf94fc49b55f7c7056.js": "/twitterclone/precache-manifest.561a59942a4a34bf94fc49b55f7c7056.js",
     "service-worker.js": "/twitterclone/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/twitterclone/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.488bbb9f.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.488bbb9f.chunk.js.LICENSE.txt"
+    "static/css/main.523f09c5.chunk.css.map": "/twitterclone/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.526c0220.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.526c0220.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fcf2b215.js",
-    "static/js/2.488bbb9f.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.f0cbb5e6.chunk.js"
+    "static/js/2.526c0220.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.07f90ba5.chunk.js"
   ]
 }

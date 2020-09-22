@@ -1,19 +1,12 @@
 import React from 'react';
+import SideMenu from './side-menu';
 import Tweet from './tweet';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Container} from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import InputBase from '@material-ui/core/InputBase';
-import NotificationsIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import MessageIcon from '@material-ui/icons/EmailOutlined';
-import BookmarkIcon from '@material-ui/icons/BookmarkBorderOutlined';
-import RepeatIcon from '@material-ui/icons/RepeatOutlined';
-import UserIcon from '@material-ui/icons/PersonOutlineOutlined';
-import SearchIcon from '@material-ui/icons/SearchOutlined';
 import grey from '@material-ui/core/colors/grey';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +21,14 @@ const useStyles = makeStyles((theme) => ({
   sideMenuItem: {
     display: `flex`,
     alignItems: `center`,
+    margin: `10px 0`,
+    cursor: `pointer`,
+    transition: `all 0.2s ease`,
 
     '&:hover': {
       color: theme.palette.primary.main,
+      backgroundColor: `rgba(29, 161, 242, 0.1)`,
+      borderRadius: 30,
     },
 
     '&:hover svg path': {
@@ -43,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
   },
   sideMenuIcon: {
     fontSize: 30,
+  },
+  sideMenuButton: {
+    margin: `5px auto`,
+    boxSizing: `border-box`,
+    borderRadius: `25px`,
+    color: `white`
   },
   logo: {    
     fontSize: 32,
@@ -105,7 +109,8 @@ const users = [
     name: 'Natali',
     email: '@natali',
     text: '',
-    avatarUrl: `https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80`
+    avatarUrl: `https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80`,
+    date: `1 hour ago`,
   },
   {
     _id: `jhjhjkhk`,
@@ -139,53 +144,10 @@ const Home = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
+      
       <Grid container spacing={3}>        
         <Grid  item xs={3}>
-          <Paper style={{height: `100vh`}} className={classes.paper}>            
-            <ul className={classes.sideMenuList}>
-              <li className={classes.sideMenuItem}>
-                <IconButton style={{paddingTop: 0}}>
-                  <TwitterIcon className={classes.logo} color="primary"/>
-                </IconButton>                
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <NotificationsIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >Notifications</Typography>
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <MessageIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >Messages</Typography>
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <BookmarkIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >BookMarks</Typography>
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <RepeatIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >Repeats</Typography>
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <UserIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >User</Typography>
-              </li>
-              <li className={classes.sideMenuItem}>
-                <IconButton>
-                  <SearchIcon className={classes.sideMenuIcon} />
-                </IconButton>   
-                <Typography className={classes.sideMenuItemLabel} >Search</Typography>
-              </li>
-            </ul>          
-          </Paper>       
+          <SideMenu classes={classes}/>         
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
@@ -199,8 +161,7 @@ const Home = () => {
             <ul className={classes.tweetsList}>
               {users.map((user)=>
                 <Tweet key={user._id} classes={classes} text={text} user={user}/>
-              )}
-              
+              )}         
               
                       
             </ul>

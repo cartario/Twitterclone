@@ -17,7 +17,10 @@ const Tweet = ({classes, text, user}) => {
         </Grid>
         <Grid item xs={11}>
           <Typography className={classes.tweetsUser}>
-          <b>{user.name}</b> <span className={classes.tweetsUserName}>{user.email}</span>
+          <b>{user.name}</b>
+          <span className={classes.tweetsUserName}>{user.email}</span>
+          <span className={classes.tweetsUserName}>-</span>
+          <span className={classes.tweetsUserName}>{user.date}</span>
           </Typography>
           <Typography variant="body1">
             {text}

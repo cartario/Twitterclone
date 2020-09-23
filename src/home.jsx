@@ -1,5 +1,6 @@
 import React from 'react';
 import SideMenu from './side-menu';
+import AddTweet from './add-tweet';
 import Tweet from './tweet';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -72,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: 0,
     listStyle: `none`,
+    borderTop: `10px solid rgba(0,0,0,0.1)`
   },
   tweetsItem: {
     padding: 10,
@@ -103,7 +105,38 @@ const useStyles = makeStyles((theme) => ({
   tweetAvatar: {
     width: 40,
     height: 40,
-  }
+  },
+  addTweetTextarea: {
+    width: `100%`,    
+    fontFamily: `inherit`,
+    fontSize: 16,
+    border: 0,
+    outline: 'none',
+    resize: `none`,
+  },
+  addTweetControls: {
+    display: `flex`, 
+    justifyContent: `space-between`,
+  },
+  addTweetControlsLeftSide: {
+    display: `flex`,
+    alignItems: `center`,
+  },
+  addTweetControlsRightSide: {
+    display: `flex`,
+    alignItems: `center`,
+  },
+  addTweetControlsCircularProgress: {
+    position: `relative`,
+    margin: `0 10px`,
+    display: `flex`, 
+    alignItems: `center`,
+  },
+  addTweetButton: {
+    margin: `0 10px`,
+    borderRadius: 30,
+    color: `white`,
+  },
 }));
 
 const text = `The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components`;
@@ -162,7 +195,6 @@ const users = [
 ];
 
 const BootstrapInput = withStyles((theme) => ({
-  
   input: {
     borderRadius: 40,
     position: 'relative',
@@ -176,8 +208,7 @@ const BootstrapInput = withStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
-      
+    <Container maxWidth="lg">      
       <Grid container spacing={3}>        
         <Grid  item xs={2}>
           <SideMenu classes={classes}/>         
@@ -188,8 +219,7 @@ const Home = () => {
               <Typography variant="h6">
                 Главная                
               </Typography>
-              <form style={{height: `100px`}}>
-              </form>
+              <AddTweet classes={classes}/>
             </Paper>            
             <ul className={classes.tweetsList}>
               {users.map((user)=>

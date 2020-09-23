@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/twitterclone/static/css/main.5f361e03.chunk.css",
-    "main.js": "/twitterclone/static/js/main.41385b74.chunk.js",
-    "main.js.map": "/twitterclone/static/js/main.41385b74.chunk.js.map",
+    "main.css": "/twitterclone/static/css/main.523f09c5.chunk.css",
+    "main.js": "/twitterclone/static/js/main.4830a649.chunk.js",
+    "main.js.map": "/twitterclone/static/js/main.4830a649.chunk.js.map",
     "runtime-main.js": "/twitterclone/static/js/runtime-main.fcf2b215.js",
     "runtime-main.js.map": "/twitterclone/static/js/runtime-main.fcf2b215.js.map",
-    "static/js/2.261b415d.chunk.js": "/twitterclone/static/js/2.261b415d.chunk.js",
-    "static/js/2.261b415d.chunk.js.map": "/twitterclone/static/js/2.261b415d.chunk.js.map",
+    "static/js/2.92712560.chunk.js": "/twitterclone/static/js/2.92712560.chunk.js",
+    "static/js/2.92712560.chunk.js.map": "/twitterclone/static/js/2.92712560.chunk.js.map",
     "index.html": "/twitterclone/index.html",
-    "precache-manifest.bb525f4ee6265b4125ba92cf9de47202.js": "/twitterclone/precache-manifest.bb525f4ee6265b4125ba92cf9de47202.js",
+    "precache-manifest.b0bbbc1ac33e2bb516e683fe2f3576bb.js": "/twitterclone/precache-manifest.b0bbbc1ac33e2bb516e683fe2f3576bb.js",
     "service-worker.js": "/twitterclone/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/twitterclone/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.261b415d.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.261b415d.chunk.js.LICENSE.txt"
+    "static/css/main.523f09c5.chunk.css.map": "/twitterclone/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.92712560.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.92712560.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fcf2b215.js",
-    "static/js/2.261b415d.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.41385b74.chunk.js"
+    "static/js/2.92712560.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.4830a649.chunk.js"
   ]
 }

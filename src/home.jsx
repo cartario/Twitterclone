@@ -10,10 +10,12 @@ import InputBase from '@material-ui/core/InputBase';
 import grey from '@material-ui/core/colors/grey';
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
+  paper: {    
     textAlign: `left`,
   },
   sideMenuList: {
+    position: `sticky`,
+    top: 0,
     margin: 0,
     padding: 0,
     listStyle: `none`,
@@ -58,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: 0,
   },
   tweetsHeader: {
+    position: `sticky`,
+    top: 0,
+    zIndex: 1,
     padding: `10px`,
     borderRight: 0,
     borderLeft: 0,
@@ -120,7 +125,35 @@ const users = [
     avatarUrl: `https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`
   },
   {
-    _id: `kokoooo`,
+    _id: `kowkoooo`,
+    name: 'Natali',
+    email: '@natali',
+    text: '',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    _id: `kokooowo`,
+    name: 'Natali',
+    email: '@natali',
+    text: '',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    _id: `kowskoooo`,
+    name: 'Natali',
+    email: '@natali',
+    text: '',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    _id: `kokwoooo`,
+    name: 'Natali',
+    email: '@natali',
+    text: '',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    _id: `kokowooo`,
     name: 'Natali',
     email: '@natali',
     text: '',
@@ -146,10 +179,10 @@ const Home = () => {
     <Container maxWidth="lg">
       
       <Grid container spacing={3}>        
-        <Grid  item xs={3}>
+        <Grid  item xs={2}>
           <SideMenu classes={classes}/>         
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
             <Paper className={classes.tweetsHeader} variant="outlined">
               <Typography variant="h6">
@@ -167,13 +200,13 @@ const Home = () => {
             </ul>
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} >
           {/* <Paper className={classes.paper}> */}
             <BootstrapInput              
               label="Поиск"              
               fullWidth
               placeholder="Поиск по твиттеру"
-              
+              style={{position: `sticky`, top: 0}}
             />
           {/* </Paper> */}
         </Grid>

@@ -1,5 +1,6 @@
 export const ActionTypes = {
-  HELLO: `HELLO`
+  HELLO: `HELLO`,
+  
 };
 
 export const ActionCreator = {

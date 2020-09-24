@@ -1,13 +1,13 @@
 import {ActionTypes} from '../actions';
 
 const initialState = {
-  hello: 1,
+  hello: `hello`,
 };
 
 export const reducer = (state = initialState, action) => { 
   switch(action.type) {
     case ActionTypes.HELLO:
-      return {...state, hello: 23}
+      return {...state, hello: `hello new`}
 
     default:
       return state;

@@ -3,17 +3,22 @@ import './App.css';
 import SignIn from './signin';
 import Home from './home';
 import {Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from './store/actions';
+import {Selector} from './store/selectors';
 
-function App({sayHello}) {  
+
+function App() { 
+  const dispatch = useDispatch();
+  const hello = useSelector((state)=>Selector.getHello(state));
+  console.log(hello, new Date())
   return (    
       <div className="App">
         <Switch>
           <Route path="/signin" component={SignIn} />
           <Route path="/">
             <Home 
-              sayHello={sayHello}
+              sayHello={()=>dispatch(ActionCreator.hello())}
             />
           </Route>              
         </Switch>      
@@ -22,14 +27,4 @@ function App({sayHello}) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  hello: state.reducerPage1,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  sayHello: ()=>  {
-    dispatch(ActionCreator.hello())
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

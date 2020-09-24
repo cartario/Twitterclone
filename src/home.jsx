@@ -211,10 +211,12 @@ const users = [
 
 
 
-const Home = () => {
+const Home = ({sayHello}) => {
+  
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">      
+    <Container maxWidth="lg">  
+    <button onClick={sayHello}>start</button>    
       <Grid container spacing={3}>        
         <Grid  item xs={2} sm={2}>
           <SideMenu classes={classes}/>                

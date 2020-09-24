@@ -6,13 +6,17 @@ import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core/styles';
 import {theme} from './theme.js';
 import {BrowserRouter as Router} from 'react-router-dom';
+import store from './store/store';
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
   <React.Fragment>
     <ThemeProvider theme={theme}>
-      <Router>
-        <App />
-      </Router>      
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>      
     </ThemeProvider>
   </React.Fragment>,
   document.getElementById('root')

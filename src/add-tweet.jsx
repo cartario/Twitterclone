@@ -9,7 +9,7 @@ const AddTweet = ({classes}) => {
   return (
     <Grid container>
       <Grid item xs={1}>
-        <Avatar />
+        <Avatar alt="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"/>
       </Grid>
       <Grid item xs={11}>
         <TextareaAutosize className={classes.addTweetTextarea} placeholder="Что происходит?"/>

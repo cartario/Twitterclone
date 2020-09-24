@@ -6,9 +6,13 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Container} from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import { Typography , TextField, IconButton} from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import grey from '@material-ui/core/colors/grey';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import SearchIcon from '@material-ui/icons/Search';
+import SideHomeRight from './side-home-right';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -53,6 +57,18 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {    
     fontSize: 32,
+  },
+  searchFieldWrap: {
+    display: `flex`,
+    position: `sticky`,
+    top: 0,
+    zIndex: 1,  
+    backgroundColor: `#ced4da`,
+    borderRadius: 40,    
+  },
+  searchField: {    
+    padding: `10px 15px`,       
+    fontSize: 16,    
   },
   tweetsWrapper: {
     height: `100%`,
@@ -194,16 +210,7 @@ const users = [
   },
 ];
 
-const BootstrapInput = withStyles((theme) => ({
-  input: {
-    borderRadius: 40,
-    position: 'relative',
-    backgroundColor: `#ced4da`,
-    border: '1px solid #ced4da',
-    fontSize: 16,    
-    padding: '10px 12px',    
-  },
-}))(InputBase);
+
 
 const Home = () => {
   const classes = useStyles();
@@ -231,14 +238,19 @@ const Home = () => {
           </Paper>
         </Grid>
         <Grid item xs={3} >
-          {/* <Paper className={classes.paper}> */}
-            <BootstrapInput              
-              label="Поиск"              
+          <div className={classes.searchFieldWrap}>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+            <InputBase className={classes.searchField}              
+              variant="outlined"           
               fullWidth
               placeholder="Поиск по твиттеру"
-              style={{position: `sticky`, top: 0}}
-            />
-          {/* </Paper> */}
+            />            
+          </div>
+          <div>
+            <SideHomeRight/>
+          </div>
         </Grid>
       </Grid>
     </Container>

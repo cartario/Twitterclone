@@ -1,36 +1,56 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
 import FileIcon from '@material-ui/icons/BrokenImageOutlined';
 import SmileIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
+const TEXT_MAX_LENGTH = 280;
+
 const AddTweet = ({classes, maxRows}) => {
-  return (
-    
+  const [text, setText] = useState(``);
+
+  const textLength = text.length;
+  const progressBar = (1- (TEXT_MAX_LENGTH - text) / TEXT_MAX_LENGTH) * 100;  
+  const isValid = TEXT_MAX_LENGTH - textLength < 0 ? false : true;
+
+  const handleChange = (e) => {    
+    setText(e.target.value);      
+  };
+
+  const handleClickAddTweet = () => {
+    setText(text);    
+  };
+
+  return (    
     <Grid container > 
       <Grid item xs={1}>
         <Avatar alt="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"/>
       </Grid>
       <Grid item xs={11}>
-        <TextareaAutosize className={classes.addTweetTextarea} placeholder="Что происходит?"  rowsMax={maxRows}/>
+        <TextareaAutosize className={classes.addTweetTextarea} placeholder="Что происходит?"  onChange={handleChange} rowsMax={maxRows}/>
         <div className={classes.addTweetControls}>
           <div className={classes.addTweetControlsLeftSide}>
             <FileIcon color="primary"/>
-            <SmileIcon color="primary"/>
+            <SmileIcon color="primary"/>  
           </div>
           <div className={classes.addTweetControlsRightSide}>
-            <span>280</span>
+            <span style={isValid ? undefined: {color: `red`}}>{TEXT_MAX_LENGTH - textLength}</span>
             <div className={classes.addTweetControlsCircularProgress}>
-              <CircularProgress variant="static" value={50} size={20}/>
+              <CircularProgress variant="static" value={isValid ? progressBar : 100} size={20}
+              style={isValid ? undefined: {color: `red`}}
+              />
               <CircularProgress style={{color: `rgba(0,0,0,0.3)`, position: `absolute`, left: 0}} variant="static" value={100} size={20}/>
-            </div>
-            <Button className={classes.addTweetButton} variant="contained" color="primary">Твитнуть</Button>
+            </div>            
+            <Button 
+              disabled={!isValid || !text}
+              className={classes.addTweetButton} variant="contained" color="primary"
+              onClick={handleClickAddTweet}
+            >Твитнуть</Button>
           </div>
         </div>
       </Grid>
-    </Grid>
-    
+    </Grid>    
   );
 };
 

@@ -2,18 +2,15 @@ import React from 'react';
 import SideMenu from './side-menu';
 import AddTweet from './add-tweet';
 import Tweet from './tweet';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles,} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Container} from '@material-ui/core';
-import { Typography , TextField, IconButton} from '@material-ui/core';
+import { Typography, IconButton} from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import grey from '@material-ui/core/colors/grey';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import SideHomeRight from './side-home-right';
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -219,10 +216,10 @@ const Home = () => {
   return (
     <Container maxWidth="lg">      
       <Grid container spacing={3}>        
-        <Grid  item xs={2}>
+        <Grid  item xs={2} sm={2}>
           <SideMenu classes={classes}/>                
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={5} sm={6}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
             <Paper className={classes.tweetsHeader} variant="outlined">
               <Typography variant="h6">
@@ -240,7 +237,8 @@ const Home = () => {
             
           </Paper>
         </Grid>
-        <Grid item xs={3} >
+        
+        <Grid item xs={5} sm={4}>        
           <div className={classes.searchFieldWrap}>
             <IconButton>
               <SearchIcon />
@@ -253,8 +251,9 @@ const Home = () => {
           </div>
           <div>
             <SideHomeRight/>
-          </div>
+          </div>          
         </Grid>
+        
       </Grid>
     </Container>
   );

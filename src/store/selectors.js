@@ -1,6 +1,10 @@
-export const getHello = (state) => state.reducerPage1.hello;
+import {Pages} from './reducers/root-reducer';
 
 export const Selector = {
-  getHello: (state) => state.reducerPage1.hello,
+  
+  getHello: (state) => {
+    
+    return state[Pages.HELLO].hello
+  },
 
 };

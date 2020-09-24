@@ -5,13 +5,13 @@ import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
 import FileIcon from '@material-ui/icons/BrokenImageOutlined';
 import SmileIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
-const TEXT_MAX_LENGTH = 280;
+const TEXT_MAX_LENGTH = 10;
 
 const AddTweet = ({classes, maxRows}) => {
   const [text, setText] = useState(``);
 
   const textLength = text.length;
-  const progressBar = (1- (TEXT_MAX_LENGTH - text) / TEXT_MAX_LENGTH) * 100;  
+  const progressBar = (1- (TEXT_MAX_LENGTH - textLength) / TEXT_MAX_LENGTH) * 100;  
   const isValid = TEXT_MAX_LENGTH - textLength < 0 ? false : true;
 
   const handleChange = (e) => {    

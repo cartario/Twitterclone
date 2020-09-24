@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/twitterclone/static/css/main.5f361e03.chunk.css",
-    "main.js": "/twitterclone/static/js/main.924712d8.chunk.js",
-    "main.js.map": "/twitterclone/static/js/main.924712d8.chunk.js.map",
+    "main.js": "/twitterclone/static/js/main.5867fcb7.chunk.js",
+    "main.js.map": "/twitterclone/static/js/main.5867fcb7.chunk.js.map",
     "runtime-main.js": "/twitterclone/static/js/runtime-main.fcf2b215.js",
     "runtime-main.js.map": "/twitterclone/static/js/runtime-main.fcf2b215.js.map",
-    "static/js/2.cc00ad6e.chunk.js": "/twitterclone/static/js/2.cc00ad6e.chunk.js",
-    "static/js/2.cc00ad6e.chunk.js.map": "/twitterclone/static/js/2.cc00ad6e.chunk.js.map",
+    "static/js/2.c9feda8c.chunk.js": "/twitterclone/static/js/2.c9feda8c.chunk.js",
+    "static/js/2.c9feda8c.chunk.js.map": "/twitterclone/static/js/2.c9feda8c.chunk.js.map",
     "index.html": "/twitterclone/index.html",
-    "precache-manifest.fb914a05a2e972719b247b5f0ce3b2f0.js": "/twitterclone/precache-manifest.fb914a05a2e972719b247b5f0ce3b2f0.js",
+    "precache-manifest.768f3a7736c1316e1728a6a90266aa68.js": "/twitterclone/precache-manifest.768f3a7736c1316e1728a6a90266aa68.js",
     "service-worker.js": "/twitterclone/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/twitterclone/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.cc00ad6e.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.cc00ad6e.chunk.js.LICENSE.txt"
+    "static/js/2.c9feda8c.chunk.js.LICENSE.txt": "/twitterclone/static/js/2.c9feda8c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fcf2b215.js",
-    "static/js/2.cc00ad6e.chunk.js",
+    "static/js/2.c9feda8c.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.924712d8.chunk.js"
+    "static/js/main.5867fcb7.chunk.js"
   ]
 }

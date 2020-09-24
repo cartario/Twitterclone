@@ -5,14 +5,15 @@ import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
 import FileIcon from '@material-ui/icons/BrokenImageOutlined';
 import SmileIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
-const AddTweet = ({classes}) => {
+const AddTweet = ({classes, maxRows}) => {
   return (
-    <Grid container>
+    
+    <Grid container > 
       <Grid item xs={1}>
         <Avatar alt="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"/>
       </Grid>
       <Grid item xs={11}>
-        <TextareaAutosize className={classes.addTweetTextarea} placeholder="Что происходит?"/>
+        <TextareaAutosize className={classes.addTweetTextarea} placeholder="Что происходит?"  rowsMax={maxRows}/>
         <div className={classes.addTweetControls}>
           <div className={classes.addTweetControlsLeftSide}>
             <FileIcon color="primary"/>
@@ -29,6 +30,7 @@ const AddTweet = ({classes}) => {
         </div>
       </Grid>
     </Grid>
+    
   );
 };
 

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import { Button} from '@material-ui/core';
 import { Hidden} from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import NotificationsIcon from '@material-ui/icons/NotificationsNoneOutlined';
@@ -12,8 +12,20 @@ import RepeatIcon from '@material-ui/icons/RepeatOutlined';
 import UserIcon from '@material-ui/icons/PersonOutlineOutlined';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 import CreateIcon from '@material-ui/icons/CreateOutlined';
+import AddTweet from './add-tweet';
+import ModalBlock from './modal-block';
 
 const SideMenu = ({classes}) => {
+  const [isVisibleAddTweet, setVisibleAddTweet] = useState(false);
+
+  const handleCloseModal = () => {
+    setVisibleAddTweet(false);
+  };
+
+  const handleClickOpenModal = () => {
+    setVisibleAddTweet(true);
+  };
+
   return (
     <Paper style={{height: `100%`}} className={classes.paper}>            
       <ul className={classes.sideMenuList}>
@@ -74,13 +86,21 @@ const SideMenu = ({classes}) => {
           </Hidden>
         </li>
         <li className={classes.sideMenuItem}>          
-          <Button className={classes.sideMenuButton} variant="contained" color="primary" fullWidth>
+          <Button className={classes.sideMenuButton} onClick={handleClickOpenModal} variant="contained" color="primary" fullWidth>
             <Hidden smDown>Твитнуть</Hidden> 
             <Hidden mdUp>          
               <CreateIcon className={classes.sideMenuIcon}/>            
             </Hidden> 
-          </Button>      
+          </Button>            
         </li>
+        <ModalBlock 
+          isVisible={isVisibleAddTweet}
+          handleClose={handleCloseModal}          
+          modalTitle={``}>          
+            <div style={{width: `500px`}} >
+              <AddTweet classes={classes} maxRows={10}/>
+            </div>
+        </ModalBlock> 
       </ul>
       
     </Paper>

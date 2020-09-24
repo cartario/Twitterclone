@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import SideHomeRight from './side-home-right';
 
+
 const useStyles = makeStyles((theme) => ({
   paper: {    
     textAlign: `left`,
@@ -123,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
     height: 40,
   },
   addTweetTextarea: {
-    width: `100%`,    
+    width: `100%`,
     fontFamily: `inherit`,
     fontSize: 16,
     border: 0,
@@ -133,6 +134,7 @@ const useStyles = makeStyles((theme) => ({
   addTweetControls: {
     display: `flex`, 
     justifyContent: `space-between`,
+    marginTop: 30,
   },
   addTweetControlsLeftSide: {
     display: `flex`,
@@ -218,7 +220,7 @@ const Home = () => {
     <Container maxWidth="lg">      
       <Grid container spacing={3}>        
         <Grid  item xs={2}>
-          <SideMenu classes={classes}/>         
+          <SideMenu classes={classes}/>                
         </Grid>
         <Grid item xs={7}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
@@ -235,6 +237,7 @@ const Home = () => {
               
                       
             </ul>
+            
           </Paper>
         </Grid>
         <Grid item xs={3} >

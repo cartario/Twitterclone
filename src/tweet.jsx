@@ -13,14 +13,14 @@ const Tweet = ({classes, text, user}) => {
     <li className={classes.tweetsItem}>
       <Grid container spacing={1}>
         <Grid item xs={1}>
-          <Avatar className={classes.tweetAvatar} alt={`Аватарка пользователя ${user.name}`} src={user.avatarUrl} />
+          <Avatar className={classes.tweetAvatar} alt={`Аватарка пользователя ${user.fullName}`} src={user.avatarUrl} />
         </Grid>
         <Grid item xs={11}>
           <Typography className={classes.tweetsUser}>
-          <b>{user.name}</b>
-          <span className={classes.tweetsUserName}>{user.email}</span>
+          <b>{user.fullName}</b>
+          <span className={classes.tweetsUserName}>{user.userName}</span>
           <span className={classes.tweetsUserName}>-</span>
-          <span className={classes.tweetsUserName}>{user.date}</span>
+          <span className={classes.tweetsUserName}>{user.userName}</span>
           </Typography>
           <Typography variant="body1">
             {text}

@@ -13,6 +13,7 @@ import grey from '@material-ui/core/colors/grey';
 import SearchIcon from '@material-ui/icons/Search';
 import SideHomeRight from './side-home-right';
 import {useDispatch} from 'react-redux';
+import Preloader from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -156,70 +157,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const text = `The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components`;
-
-const users = [
-  {
-    _id: 'ddsdsds',
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: `https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80`,
-    date: `1 hour ago`,
-  },
-  {
-    _id: `jhjhjkhk`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: `https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`
-  },
-  {
-    _id: `kowkoooo`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  },
-  {
-    _id: `kokooowo`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  },
-  {
-    _id: `kowskoooo`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  },
-  {
-    _id: `kokwoooo`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  },
-  {
-    _id: `kokowooo`,
-    name: 'Natali',
-    email: '@natali',
-    text: '',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  },
-];
 
 
-
-const Home = ({sayHello}) => {
+const Home = ({sayHello, tweets}) => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const classes = useStyles();  
+
   return (
     <Container maxWidth="lg">  
-    <button onClick={sayHello}>start</button>    
-    <button onClick={()=>{dispatch(ActionCreator.setTweets({name: `sveta`}))}}>setTweets</button>    
+    {/* <button onClick={sayHello}>start</button>    
+    <button onClick={()=>{dispatch(ActionCreator.setTweets({name: `sveta`}))}}>setTweets</button>     */}
       <Grid container spacing={3}>        
         <Grid  item xs={2} sm={2}>
           <SideMenu classes={classes}/>                
@@ -233,16 +180,12 @@ const Home = ({sayHello}) => {
               <AddTweet classes={classes}/>
             </Paper>            
             <ul className={classes.tweetsList}>
-              {users.map((user)=>
-                <Tweet key={user._id} classes={classes} text={text} user={user}/>
-              )}         
-              
-                      
-            </ul>
-            
+              {tweets.length ? tweets.map((tweet)=>
+                <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user}/>
+              ) : <Preloader />}                      
+            </ul>            
           </Paper>
-        </Grid>
-        
+        </Grid>        
         <Grid item xs={5} sm={4}>        
           <div className={classes.searchFieldWrap}>
             <IconButton>

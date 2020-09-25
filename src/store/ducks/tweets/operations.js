@@ -1,15 +1,14 @@
-import Axios from 'axios';
 import {ActionCreator} from './actions';
 import axios from 'axios';
 
 export const Operation = {
-  load: () => (dispatch)=> {    
+  fetchTweets: () => (dispatch)=> {    
     return axios.get("https://trycode.pw/c/BKB06.json")
-    .then((res)=>{
-      console.log(res);    
-      dispatch(ActionCreator.hello());
+    .then((res)=>{       
+      dispatch(ActionCreator.setTweets(res.data));      
     })
     .catch((err)=>{
+      dispatch(ActionCreator.setLoading());
       throw err;
     });
   },

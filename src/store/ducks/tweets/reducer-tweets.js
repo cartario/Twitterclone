@@ -19,10 +19,14 @@ const initialState = {
   loadingStatus: loadingStatus.NEVER,
 };
 
-export const reducer = (state = initialState, action) => { 
-  switch(action.type) {
+export const reducer = (state = initialState, action) => {
+  const {type, payload} = action;
+  
+  switch(type) {
     case ActionTypes.HELLO:
-      return {...state, hello: `hello new`}
+      return {...state, hello: `hello new`};
+    case ActionTypes.SET_TWEETS:
+      return {...state, items: payload};
 
     default:
       return state;

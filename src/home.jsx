@@ -1,4 +1,5 @@
 import React from 'react';
+import {ActionCreator} from './store/ducks/tweets/actions';
 import SideMenu from './side-menu';
 import AddTweet from './add-tweet';
 import Tweet from './tweet';
@@ -11,6 +12,7 @@ import InputBase from '@material-ui/core/InputBase';
 import grey from '@material-ui/core/colors/grey';
 import SearchIcon from '@material-ui/icons/Search';
 import SideHomeRight from './side-home-right';
+import {useDispatch} from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -212,11 +214,12 @@ const users = [
 
 
 const Home = ({sayHello}) => {
-  
+  const dispatch = useDispatch();
   const classes = useStyles();
   return (
     <Container maxWidth="lg">  
     <button onClick={sayHello}>start</button>    
+    <button onClick={()=>{dispatch(ActionCreator.setTweets({name: `sveta`}))}}>setTweets</button>    
       <Grid container spacing={3}>        
         <Grid  item xs={2} sm={2}>
           <SideMenu classes={classes}/>                

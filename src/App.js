@@ -10,7 +10,8 @@ import {Selector} from './store/ducks/tweets/selectors';
 function App() { 
   const dispatch = useDispatch();
   const hello = useSelector((state)=>Selector.getHello(state));
-  console.log(hello)  
+  console.log(hello) 
+
   return (    
       <div className="App">
         <Switch>

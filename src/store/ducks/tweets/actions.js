@@ -1,8 +1,7 @@
-
-
 export const ActionTypes = {
   HELLO: `HELLO`,
-  
+  SET_TWEETS: `tweets/SET_TWEETS`,
+
 };
 
 export const ActionCreator = {
@@ -10,8 +9,8 @@ export const ActionCreator = {
     type: ActionTypes.HELLO
   }),
 
-  hello2: () => ({
-
+  setTweets: (payload) => ({
+    type: ActionTypes.SET_TWEETS,
+    payload: payload,
   })
 };
-

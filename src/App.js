@@ -7,11 +7,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from './store/actions';
 import {Selector} from './store/selectors';
 
-
 function App() { 
   const dispatch = useDispatch();
   const hello = useSelector((state)=>Selector.getHello(state));
-  console.log(hello, new Date())
+  console.log(hello)  
   return (    
       <div className="App">
         <Switch>
@@ -22,8 +21,7 @@ function App() {
             />
           </Route>              
         </Switch>      
-      </div>
-    
+      </div>    
   );
 }
 

@@ -4,8 +4,8 @@ import SignIn from './signin';
 import Home from './home';
 import {Switch, Route} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {ActionCreator} from './store/actions';
-import {Selector} from './store/selectors';
+import {ActionCreator} from './store/ducks/tweets/actions';
+import {Selector} from './store/ducks/tweets/selectors';
 
 function App() { 
   const dispatch = useDispatch();

@@ -26,10 +26,11 @@ export const reducer = (state = initialState, action) => {
     case ActionTypes.HELLO:
       return {...state, hello: `hello new`};
     case ActionTypes.SET_TWEETS:
-      return {...state, items: payload};
+      return {...state, items: payload, loadingStatus: loadingStatus.LOADED};
     case ActionTypes.SET_LOADING:
       return {...state, loadingStatus: loadingStatus.LOADING};
-
+    case ActionTypes.FETCH_TWEETS:      
+      return {...state, items: [], loadingStatus: loadingStatus.LOADING};
     default:
       return state;
   }  

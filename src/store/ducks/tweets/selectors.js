@@ -6,5 +6,6 @@ export const Selector = {
   },
 
   getTweets: (state) => state[Pages.TWEETS].items,
+  getIsLoaded: (state) => state[Pages.TWEETS].loadingStatus === `LOADED`,
 };
 

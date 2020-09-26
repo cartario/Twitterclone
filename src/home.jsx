@@ -12,8 +12,9 @@ import InputBase from '@material-ui/core/InputBase';
 import grey from '@material-ui/core/colors/grey';
 import SearchIcon from '@material-ui/icons/Search';
 import SideHomeRight from './side-home-right';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '@material-ui/core/CircularProgress';
+import {Selector} from './store/ducks/tweets/selectors';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -161,7 +162,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = ({sayHello, tweets}) => {
   const dispatch = useDispatch();
-  const classes = useStyles();  
+  const classes = useStyles();
+  const isLoaded = useSelector(Selector.getIsLoaded); 
 
   return (
     <Container maxWidth="lg">  
@@ -180,7 +182,7 @@ const Home = ({sayHello, tweets}) => {
               <AddTweet classes={classes}/>
             </Paper>            
             <ul className={classes.tweetsList}>
-              {tweets.length ? tweets.map((tweet)=>
+              {isLoaded ? tweets.map((tweet)=>
                 <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user}/>
               ) : <Preloader />}                      
             </ul>            

@@ -1,11 +1,5 @@
 import {ActionTypes} from './actions';
 
-// const user = {
-//   fullName: ``,
-//   userName: ``,
-//   avatarUrl: ``,
-// };
-
 const loadingStatus = {
   LOADED: `LOADED`,
   LOADING: `LOADING`,
@@ -13,8 +7,7 @@ const loadingStatus = {
   NEVER: `NEVER`,
 };
 
-const initialState = {
-  hello: `hello`,
+const initialState = {  
   items: [],
   loadingStatus: loadingStatus.NEVER,
 };
@@ -22,17 +15,14 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   const {type, payload} = action;
   
-  switch(type) {
-    case ActionTypes.HELLO:
-      return {...state, hello: `hello new`};
-    case ActionTypes.SET_TWEETS:
+  switch(type) {    
+    case ActionTypes.SET_TAGS:
       return {...state, items: payload, loadingStatus: loadingStatus.LOADED};
     case ActionTypes.SET_LOADING:
       return {...state, loadingStatus: loadingStatus.LOADING};
-    case ActionTypes.FETCH_TWEETS:      
+    case ActionTypes.FETCH_TAGS:      
       return {...state, items: [], loadingStatus: loadingStatus.LOADING};
     default:
       return state;
   }  
 };
-

@@ -1,0 +1,100 @@
+{
+  "tweets": [
+    {
+      "_id": "5f6d8c55a816dd4bccb7958c",
+      "text": "Ex in laborum laborum cupidatat pariatur irure officia minim. Consectetur veniam culpa adipisicing excepteur dolore Lorem consequat tempor mollit cupidatat. Duis fugiat velit aliquip aute occaecat esse ad sint tempor nostrud pariatur.",
+      "user": {
+        "fullName": "Lang Miles",
+        "userName": "shawn",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+      }
+    },
+    {
+      "_id": "5f6d8c5567b0eaf336081e19",
+      "text": "Aute et eiusmod voluptate culpa exercitation commodo in dolor irure cupidatat. Veniam incididunt sint proident nostrud elit esse incididunt sit amet mollit dolore tempor Lorem. Eiusmod laboris duis commodo voluptate ipsum voluptate eu ipsum id irure dolor irure quis id.",
+      "user": {
+        "fullName": "Kirby Oneal",
+        "userName": "rosetta",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "_id": "5f6d8c55adcab9e5e8e161b9",
+      "text": "Incididunt ut quis ad aliqua mollit. Nostrud aliqua cillum id tempor adipisicing occaecat excepteur. Ad nostrud duis adipisicing commodo.",
+      "user": {
+        "fullName": "Cecilia Burnett",
+        "userName": "tisha",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    },
+    {
+      "_id": "5f6d8c55b44b67a0303422bd",
+      "text": "Proident ex sunt occaecat cillum laborum eiusmod qui amet velit. Anim officia minim ipsum qui duis do incididunt non elit. Laborum reprehenderit duis laboris laborum incididunt non excepteur dolore id ad consequat velit est sit.",
+      "user": {
+        "fullName": "Lina Mcpherson",
+        "userName": "hewitt",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      }
+    },
+    {
+      "_id": "5f6d8c550d8f323d7db1d1de",
+      "text": "Mollit amet aliqua nisi occaecat qui fugiat. Consequat ex cillum Lorem exercitation deserunt consequat veniam excepteur do dolor adipisicing. Exercitation enim eiusmod et minim.",
+      "user": {
+        "fullName": "Patricia Roman",
+        "userName": "jana",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+      }
+    },
+    {
+      "_id": "5f6d8c55dc92b446e4496389",
+      "text": "Consequat esse do excepteur mollit veniam ullamco Lorem. Laborum reprehenderit sit adipisicing consectetur tempor laboris. Qui mollit Lorem consequat duis enim aliqua aliquip ullamco.",
+      "user": {
+        "fullName": "Diann Mcintosh",
+        "userName": "wise",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "5f6d8c555ec2b3453abd4393",
+      "text": "Non tempor esse aute non ullamco aute elit magna mollit dolore excepteur. Labore ullamco non ullamco enim do commodo aliqua sunt. Laboris consectetur non aute officia tempor aute excepteur ex ullamco officia veniam magna dolor.",
+      "user": {
+        "fullName": "Charity Hanson",
+        "userName": "reyes",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      }
+    },
+    {
+      "_id": "5f6d8c551ba83f9ac8330917",
+      "text": "Ullamco enim proident occaecat adipisicing. Qui irure quis aliqua proident consequat cupidatat ea ex in. Excepteur voluptate sunt duis in commodo proident labore esse eiusmod eu quis.",
+      "user": {
+        "fullName": "Jeanine Hogan",
+        "userName": "tammie",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "_id": "5f6d8c557416543b1fe1671c",
+      "text": "Dolor nulla consectetur fugiat Lorem fugiat culpa ea aliquip cillum. Ad enim culpa veniam deserunt labore anim eu. Nulla consequat pariatur eiusmod enim mollit ipsum pariatur velit consectetur commodo velit laborum.",
+      "user": {
+        "fullName": "Lynn Mcclain",
+        "userName": "kathryn",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "5f6d8c55e5db51cff6992174",
+      "text": "Lorem tempor cillum ex sint amet id. Reprehenderit incididunt aute anim ad id id sint. Deserunt consectetur cupidatat laborum veniam id dolor ullamco.",
+      "user": {
+        "fullName": "Christine Knight",
+        "userName": "fitzpatrick",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    }
+  ],
+  "user": {
+    "_id": "5f6d8c55a816dd4bccb79",
+    "fullName": "Zaikov",
+    "userName": "Vasiliy",
+    "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+  }
+}

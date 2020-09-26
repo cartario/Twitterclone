@@ -4,7 +4,7 @@ import axios from 'axios';
 export const Operation = {
   fetchTweets: () => (dispatch)=> {
     dispatch(ActionCreator.fetchTweets());
-    return axios.get("https://trycode.pw/c/BKB06.json")
+    return axios.get("/tweets")
     .then((res)=>{       
       dispatch(ActionCreator.setTweets(res.data));      
     })

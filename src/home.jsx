@@ -14,6 +14,8 @@ import SideHomeRight from './side-home-right';
 import {useSelector} from 'react-redux';
 import Preloader from '@material-ui/core/CircularProgress';
 import {Selector} from './store/ducks/tweets/selectors';
+import {Route, useHistory} from 'react-router-dom';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -98,6 +100,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: `rgb(248,250,200)`
     },
     cursor: `pointer`,
+
+    '& a': {
+      color: 'inherit',
+      textDecoration: 'none',
+    }
   },
   tweetsUser: {
     fontSize: 14
@@ -159,7 +166,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = ({sayHello, tweets}) => {  
   const classes = useStyles();
-  const isLoaded = useSelector(Selector.getIsLoaded); 
+  const isLoaded = useSelector(Selector.getIsLoaded);
+  const history = useHistory();
 
   return (
     <Container maxWidth="lg">    
@@ -170,15 +178,31 @@ const Home = ({sayHello, tweets}) => {
         <Grid item xs={5} sm={6}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
             <Paper className={classes.tweetsHeader} variant="outlined">
-              <Typography variant="h6">
-                Главная                
-              </Typography>
-              <AddTweet classes={classes}/>
+              <Route path={[`/home/:any`]}>
+                <div style={{display: `flex`, alignItems: `center`}}>
+                  <IconButton onClick={()=>history.goBack()}>
+                    <ArrowBackIcon color="primary"/> 
+                  </IconButton>                 
+                  <Typography variant="h6">
+                      Твитнуть                
+                  </Typography>
+                </div>                             
+              </Route>
+              <Route path={[`/home`]} exact>
+                <Typography variant="h6">
+                    Главная                
+                </Typography>                  
+              </Route> 
+              <Route path={[`/home`, `/home/search`]} exact>                
+                <AddTweet classes={classes}/>
+              </Route>              
             </Paper>            
             <ul className={classes.tweetsList}>
-              {isLoaded ? tweets.map((tweet)=>
-                <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user}/>
-              ) : <Preloader />}                      
+              <Route path="/home" exact>
+                {isLoaded ? tweets.map((tweet)=>
+                  <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} id={tweet._id}/>
+                ) : <Preloader />}
+              </Route>
             </ul>            
           </Paper>
         </Grid>        

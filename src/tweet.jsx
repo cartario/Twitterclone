@@ -7,10 +7,13 @@ import Avatar from '@material-ui/core/Avatar';
 import CommentIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import SendIcon from '@material-ui/icons/SendOutlined';
+import {Link} from 'react-router-dom';
 
-const Tweet = ({classes, text, user}) => {
+const Tweet = ({classes, text, user, id}) => {
   return (
+    
     <li className={classes.tweetsItem}>
+      <Link to={`home/tweet/${id}`}>
       <Grid container spacing={1}>
         <Grid item xs={1}>
           <Avatar className={classes.tweetAvatar} alt={`Аватарка пользователя ${user.fullName}`} src={user.avatarUrl} />
@@ -42,7 +45,9 @@ const Tweet = ({classes, text, user}) => {
           </div>
         </Grid>
       </Grid>
+      </Link>
     </li>
+    
   );
 };
 

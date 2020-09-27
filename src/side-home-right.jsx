@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Operation} from './store/ducks/tags/operations';
 import {Selector} from './store/ducks/tags/selectors';
 import Preloader from '@material-ui/core/CircularProgress';
+import {Link, Route} from 'react-router-dom';
 
 const useStyles = makeStyles((theme)=>({
   rightSideList: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles((theme)=>({
   },
   rightSideListTitle: {
     
+  },
+  rightSideWrapItem: {
+    color: `inherit`,
+    textDecoration: `none`,
   },
   rightSideItemAvatar: {
     marginRight: 20,
@@ -36,21 +41,24 @@ const SideHomeRight = () => {
   },[dispatch]);
 
   return (<>
-    {!isLoaded ? <Preloader />:
-    <List className={classes.rightSideList}>
-      <ListItem>
-        <Typography className={classes.rightSideListTitle} vatiant="h2"><b>Актуальные темы</b></Typography>
-      </ListItem>
-      <Divider component="li"/>
-      {tags.map((tag)=> 
-      <React.Fragment key={tag.name}>
-        <ListItem button>        
-          <ListItemText primary={tag.name} secondary={`Твитов: ${tag.count}`}/>
+    
+      {!isLoaded ? <Preloader />:
+      <List className={classes.rightSideList}>
+        <ListItem>
+          <Typography className={classes.rightSideListTitle} vatiant="h2"><b>Актуальные темы</b></Typography>
         </ListItem>
         <Divider component="li"/>
-      </React.Fragment>)}
-      
-    </List>}
+        {tags.map((tag)=> 
+        <React.Fragment key={tag.name}>
+          <Link className={classes.rightSideWrapItem} to={`/home/search?q=${tag.name}`}>
+            <ListItem button>        
+              <ListItemText primary={tag.name} secondary={`Твитов: ${tag.count}`}/>
+            </ListItem>
+          </Link>        
+          <Divider component="li"/>
+        </React.Fragment>)}      
+      </List>}
+    
     <List className={classes.rightSideList}>
       <ListItem>
         <Typography className={classes.rightSideListTitle} vatiant="h2"><b>Кого читать</b></Typography>

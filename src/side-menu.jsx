@@ -14,6 +14,7 @@ import SearchIcon from '@material-ui/icons/SearchOutlined';
 import CreateIcon from '@material-ui/icons/CreateOutlined';
 import AddTweet from './add-tweet';
 import ModalBlock from './modal-block';
+import {Link} from 'react-router-dom';
 
 const SideMenu = ({classes}) => {
   const [isVisibleAddTweet, setVisibleAddTweet] = useState(false);
@@ -30,9 +31,11 @@ const SideMenu = ({classes}) => {
     <Paper style={{height: `100%`}} className={classes.paper}>            
       <ul className={classes.sideMenuList}>
         <li className={classes.sideMenuItem} style={{marginTop: 0}}>
-          <IconButton style={{paddingTop: 0}}>
-            <TwitterIcon className={classes.logo} color="primary"/>
-          </IconButton>                
+          <Link to="/home">
+            <IconButton style={{paddingTop: 0}}>
+              <TwitterIcon className={classes.logo} color="primary"/>
+            </IconButton>
+          </Link>              
         </li>
         <li className={classes.sideMenuItem}>
           <IconButton>

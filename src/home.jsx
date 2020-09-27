@@ -16,6 +16,7 @@ import Preloader from '@material-ui/core/CircularProgress';
 import {Selector} from './store/ducks/tweets/selectors';
 import {Route, useHistory} from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import FullTweet from './full-tweet';
 
 const useStyles = makeStyles((theme) => ({
   paper: {    
@@ -164,10 +165,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = ({sayHello, tweets}) => {  
+const Home = (props) => { 
+  const {sayHello, tweets} = props; 
+  
   const classes = useStyles();
   const isLoaded = useSelector(Selector.getIsLoaded);
   const history = useHistory();
+    
+  const handleClickBack = () => {
+    history.goBack();    
+  };
 
   return (
     <Container maxWidth="lg">    
@@ -180,7 +187,7 @@ const Home = ({sayHello, tweets}) => {
             <Paper className={classes.tweetsHeader} variant="outlined">
               <Route path={[`/home/:any`]}>
                 <div style={{display: `flex`, alignItems: `center`}}>
-                  <IconButton onClick={()=>history.goBack()}>
+                  <IconButton onClick={handleClickBack}>
                     <ArrowBackIcon color="primary"/> 
                   </IconButton>                 
                   <Typography variant="h6">
@@ -202,6 +209,9 @@ const Home = ({sayHello, tweets}) => {
                 {isLoaded ? tweets.map((tweet)=>
                   <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} id={tweet._id}/>
                 ) : <Preloader />}
+              </Route>
+              <Route path="/home/tweet/:id" exact>
+                  <FullTweet classes={classes}/>
               </Route>
             </ul>            
           </Paper>

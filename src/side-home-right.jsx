@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Operation} from './store/ducks/tags/operations';
 import {Selector} from './store/ducks/tags/selectors';
 import Preloader from '@material-ui/core/CircularProgress';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme)=>({
   rightSideList: {

@@ -5,6 +5,7 @@ import {Operation} from './store/ducks/full-tweet/operations';
 import {Selector} from './store/ducks/full-tweet/selectors';
 import Tweet from './tweet';
 import Preloader from '@material-ui/core/CircularProgress';
+import { ActionCreator } from './store/ducks/full-tweet/actions';
 
 const FullTweet = (props) => {
   const {classes} = props;
@@ -15,10 +16,14 @@ const FullTweet = (props) => {
   const dispatch = useDispatch(); 
 
   useEffect(()=>{
-    dispatch(Operation.fetchFullTweet(id))
+    dispatch(Operation.fetchFullTweet(id));
+
+    return () =>{
+      dispatch(ActionCreator.setFullTweet(undefined));
+    }
   },[dispatch, id]);
 
-  if(!isLoaded){
+  if(!isLoaded || !tweet){
     return <Preloader />;
   }
   

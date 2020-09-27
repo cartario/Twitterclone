@@ -166,7 +166,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = (props) => { 
-  const {sayHello, tweets} = props; 
+  const {tweets} = props; 
   
   const classes = useStyles();
   const isLoaded = useSelector(Selector.getIsLoaded);

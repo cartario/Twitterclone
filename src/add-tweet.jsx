@@ -4,11 +4,14 @@ import Avatar from '@material-ui/core/Avatar';
 import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
 import FileIcon from '@material-ui/icons/BrokenImageOutlined';
 import SmileIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
+import {useDispatch} from 'react-redux';
+import {Operation} from './store/ducks/tweets/operations';
 
 const TEXT_MAX_LENGTH = 10;
 
 const AddTweet = ({classes, maxRows}) => {
   const [text, setText] = useState(``);
+  const dispatch = useDispatch();
 
   const textLength = text.length;
   const progressBar = (1- (TEXT_MAX_LENGTH - textLength) / TEXT_MAX_LENGTH) * 100;  
@@ -20,6 +23,7 @@ const AddTweet = ({classes, maxRows}) => {
 
   const handleClickAddTweet = () => {
     setText(text);    
+    dispatch(Operation.fetchAddTweet(text));    
   };
 
   return (    

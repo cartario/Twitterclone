@@ -31,6 +31,9 @@ export const reducer = (state = initialState, action) => {
       return {...state, loadingStatus: loadingStatus.LOADING};
     case ActionTypes.FETCH_TWEETS:      
       return {...state, items: [], loadingStatus: loadingStatus.LOADING};
+    case ActionTypes.ADD_TWEET: 
+      state.items.splice(0,0,payload);
+      return {...state, items: state.items};
     default:
       return state;
   }  

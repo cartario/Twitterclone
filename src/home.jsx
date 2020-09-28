@@ -166,10 +166,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = (props) => { 
-  const {tweets} = props; 
+  
   
   const classes = useStyles();
   const isLoaded = useSelector(Selector.getIsLoaded);
+  const tweets = useSelector(Selector.getTweets);
   const history = useHistory();
     
   const handleClickBack = () => {

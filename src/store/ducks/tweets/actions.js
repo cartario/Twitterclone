@@ -5,6 +5,7 @@ export const ActionTypes = {
   FETCH_TWEETS: `tweets/FETCH_TWEETS`,
   ADD_FETCH_TWEET: `tweets/ADD_FETCH_TWEET`,
   ADD_TWEET: `tweets/ADD_TWEET`,
+  ADD_TWEET_LOADING_STATUS: `tweets/ADD_TWEET_LOADING_STATUS`,
 };
 
 export const ActionCreator = {
@@ -28,5 +29,10 @@ export const ActionCreator = {
   addTweet: (payload) => ({
     type: ActionTypes.ADD_TWEET,
     payload: payload,
-  })
+  }),
+
+  setLoadingAddTweet: (payload) => ({
+    type: ActionTypes.ADD_TWEET_LOADING_STATUS,
+    payload
+  }),
 };

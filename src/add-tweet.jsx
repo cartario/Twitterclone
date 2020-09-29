@@ -4,14 +4,18 @@ import Avatar from '@material-ui/core/Avatar';
 import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
 import FileIcon from '@material-ui/icons/BrokenImageOutlined';
 import SmileIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {Operation} from './store/ducks/tweets/operations';
+import {Selector} from './store/ducks/tweets/selectors';
+import Snackbar from '@material-ui/core/Snackbar';
 
 const TEXT_MAX_LENGTH = 10;
 
 const AddTweet = ({classes, maxRows}) => {
   const [text, setText] = useState(``);
   const dispatch = useDispatch();
+  const isAddTweetLoading = useSelector(Selector.getIsLoadingAddTweet);
+  const isAddTweetError = useSelector(Selector.getIsErrorAddTweet);
 
   const textLength = text.length;
   const progressBar = (1- (TEXT_MAX_LENGTH - textLength) / TEXT_MAX_LENGTH) * 100;  
@@ -47,10 +51,15 @@ const AddTweet = ({classes, maxRows}) => {
               <CircularProgress style={{color: `rgba(0,0,0,0.3)`, position: `absolute`, left: 0}} variant="static" value={100} size={20}/>
             </div>            
             <Button 
-              disabled={!isValid || !text}
+              disabled={!isValid || !text || isAddTweetLoading}
               className={classes.addTweetButton} variant="contained" color="primary"
               onClick={handleClickAddTweet}
-            >Твитнуть</Button>
+            >
+              {isAddTweetLoading && <CircularProgress size={20}/>}
+              Твитнуть
+            
+            </Button>
+            
           </div>
         </div>
       </Grid>

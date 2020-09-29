@@ -30,8 +30,7 @@ export const Operation = {
     .then((res)=> {      
       dispatch(ActionCreator.addTweet(res.data));      
     })
-    .catch((err)=>{
-      dispatch(ActionCreator.setLoading());
+    .catch((err)=>{      
       dispatch(ActionCreator.setLoadingAddTweet(addTweetLoadingStatus.ERROR));
       throw err;
     });

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { TextareaAutosize, Button, CircularProgress  } from '@material-ui/core';
@@ -8,14 +8,30 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Operation} from './store/ducks/tweets/operations';
 import {Selector} from './store/ducks/tweets/selectors';
 import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 const TEXT_MAX_LENGTH = 10;
 
 const AddTweet = ({classes, maxRows}) => {
   const [text, setText] = useState(``);
+  const [open, setOpen] = useState(true);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
   const dispatch = useDispatch();
   const isAddTweetLoading = useSelector(Selector.getIsLoadingAddTweet);
   const isAddTweetError = useSelector(Selector.getIsErrorAddTweet);
+
+  useEffect(()=>{
+    if(isAddTweetError){
+      setOpen(true)
+    }
+  }, [setOpen, isAddTweetError]);
 
   const textLength = text.length;
   const progressBar = (1- (TEXT_MAX_LENGTH - textLength) / TEXT_MAX_LENGTH) * 100;  
@@ -59,7 +75,20 @@ const AddTweet = ({classes, maxRows}) => {
               Твитнуть
             
             </Button>
-            
+            {isAddTweetError &&
+            <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="error">
+                Ошибка отправки твита!
+              </Alert>
+            </Snackbar>}
+
+            {isAddTweetLoading && !isAddTweetError &&
+            <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="success">
+              Твит успешно отправлен!
+            </Alert>
+          </Snackbar>
+            }
           </div>
         </div>
       </Grid>

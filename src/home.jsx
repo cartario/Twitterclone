@@ -163,6 +163,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 30,
     color: `white`,
   },
+  fullTweetText: {
+    fontSize: 24,
+  },
+  fullTweetUser: {
+    display: 'flex'
+  },
+  fullTweetControls: {
+    display: `flex`,
+    justifyContent: `space-between`,
+    width: `80%`,
+    margin: '0 auto',
+  },
+
 }));
 
 const Home = (props) => { 

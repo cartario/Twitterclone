@@ -1,9 +1,9 @@
 import {UserModel} from '../models/UserModel';
+import {validationResult} from 'express-validator';
 
 class UserController {
   async index(req, res) {
     try {
-      
       const users = await UserModel.find({}).exec();
       res.json({
         status: 'success',
@@ -18,9 +18,14 @@ class UserController {
     }
   }
 
-  async create(req, res) {
-    
+  async create(req, res) {    
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        res.status(400).json({ status: 'error', errors: errors.array()});
+        return;
+      }
+
       const data = {
         email: req.body.email,
         fullName: req.body.fullName,

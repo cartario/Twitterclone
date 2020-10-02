@@ -1,9 +1,12 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import '../core/db';
 import {UserCtrl} from '../controllers/UserController';
 import {registerValidations} from '../validations/register';
 
+dotenv.config();
 const app = express();
+
 app.use(express.json());
 
 const PORT = 8888;

@@ -32,7 +32,7 @@ class UserController {
         email: req.body.email,
         fullName: req.body.fullName,
         userName: req.body.userName,
-        confirmed_hash: generateMD5(process.env.SECRET_KEY || Math.random().toString()),
+        confirmed_hash: generateMD5(Math.random().toString()),
         password: req.body.password
       };
       
@@ -47,7 +47,7 @@ class UserController {
         emailFrom: 'twitter@test.com', 
         emailTo: data.email, 
         subject: 'Подтверждение почты', 
-        html: `Чтобы подтвердить почту <a href="http://localhost:${process.env.PORT || 8888}/signup/verify?hash=${data.confirmed_hash}">перейдите по ссылке </a>`
+        html: `Чтобы подтвердить почту <a href="http://localhost:${process.env.PORT || 8888}/users/verify?hash=${data.confirmed_hash}">перейдите по ссылке </a>`
       }, (err)=> {
         if(err){
           res.json({
@@ -63,6 +63,36 @@ class UserController {
         status: 'error',
         message: JSON.stringify(error)
       })
+    }
+  }
+
+  async verify(req, res) {
+    
+    try {
+      const hash = req.query.hash;
+
+      if(!hash){
+        res.status(400).send();
+      }
+
+      const user = await UserModel.findOne({confirmed_hash: hash}).exec();
+
+      if(user){        
+        user.confirmed = true;
+        user.save();
+
+        res.json({
+          status: 'success'        
+        })
+
+      } else {
+        res.json({
+          mmessage: 'Пользователь не найден'
+        })
+      }      
+    }
+    catch(error) {
+      res.status(500).send();
     }
   }
 };

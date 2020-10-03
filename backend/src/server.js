@@ -1,21 +1,24 @@
 import dotenv from 'dotenv';
-import express from 'express';
+dotenv.config();
 import '../core/db';
+
+import express from 'express';
+
 import {UserCtrl} from '../controllers/UserController';
 import {registerValidations} from '../validations/register';
 
-dotenv.config();
 const app = express();
 
 app.use(express.json());
 
-const PORT = 8888;
+
 
 app.get('/users', UserCtrl.index);
 app.post('/users', registerValidations, UserCtrl.create);
 // app.patch('/users/:id', UserCtrl.update);
 // app.delete('/users/:id', UserCtrl.delete);
 
-app.listen(PORT, () =>{
+app.listen(process.env.PORT, () =>{
   console.log(`SERVER RUNNUNG`);
 });
+

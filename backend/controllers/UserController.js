@@ -62,7 +62,7 @@ class UserController {
         fullName: req.body.fullName,
         userName: req.body.userName,
         confirmed_hash: generateMD5(Math.random().toString()),
-        password: req.body.password
+        password: generateMD5(req.body.password + Math.random().toString())
       };
       
       const user = await UserModel.create(data);

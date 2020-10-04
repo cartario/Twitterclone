@@ -20,7 +20,8 @@ const UserSchema = new Schema({
   },
   password: {    
     required: true,
-    type: String
+    type: String,
+    select: false
   },
   confirmed: {   
     type: Boolean,
@@ -28,7 +29,8 @@ const UserSchema = new Schema({
   },
   confirmed_hash: {    
     required: true,
-    type: String
+    type: String,
+    select: false
   },
   about: String,
   website: String

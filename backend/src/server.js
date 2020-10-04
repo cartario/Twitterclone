@@ -11,9 +11,8 @@ const app = express();
 
 app.use(express.json());
 
-
-
 app.get('/users', UserCtrl.index);
+app.get('/users/:id', UserCtrl.show);
 app.post('/users', registerValidations, UserCtrl.create);
 app.get('/users/verify', UserCtrl.verify);
 // app.patch('/users/:id', UserCtrl.update);

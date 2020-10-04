@@ -20,8 +20,7 @@ const UserSchema = new Schema({
   },
   password: {    
     required: true,
-    type: String,
-    select: false
+    type: String
   },
   confirmed: {   
     type: Boolean,
@@ -29,11 +28,18 @@ const UserSchema = new Schema({
   },
   confirmed_hash: {    
     required: true,
-    type: String,
-    select: false
+    type: String
   },
   about: String,
   website: String
 });
+
+UserSchema.set('toJSON', {
+  transform: function(_, obj){
+    delete obj.password
+    delete obj.confirmed_hash
+    return obj;
+  }
+})
 
 export const UserModel = model('User', UserSchema);

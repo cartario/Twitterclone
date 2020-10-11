@@ -6,8 +6,9 @@ export const Operation = {
   fetchTweets: () => (dispatch)=> {
     dispatch(ActionCreator.fetchTweets());
     return axios.get("/tweets")
-    .then((res)=>{       
-      dispatch(ActionCreator.setTweets(res.data));      
+    .then((res)=>{  
+      const data = res.data.data;         
+      dispatch(ActionCreator.setTweets(data));      
     })
     .catch((err)=>{
       dispatch(ActionCreator.setLoading());

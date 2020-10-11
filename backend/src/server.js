@@ -5,6 +5,7 @@ import '../core/db';
 import express from 'express';
 
 import {UserCtrl} from '../controllers/UserController';
+import {TweetsCtrl} from '../controllers/TweetsController';
 import {registerValidations} from '../validations/register';
 import {passport} from '../core/passport';
 
@@ -26,7 +27,26 @@ app.get('/users/verify', UserCtrl.verify);
 // app.patch('/users/:id', UserCtrl.update);
 // app.delete('/users/:id', UserCtrl.delete);
 
+app.get('/tweets', TweetsCtrl.index);
+app.post('/tweets', TweetsCtrl.create);
+
+app.get('/tags', (req,res)=>{
+  res.send([
+    {
+      "name": "Санкт-Петербург",
+      "count": "12345"
+    },
+    {
+      "name": "Навальный",
+      "count": "22222"
+    },
+    {
+      "name": "СберКонф",
+      "count": "3333"
+    }
+  ])
+})
+
 app.listen(process.env.PORT, () =>{
   console.log(`SERVER RUNNUNG`);
 });
-

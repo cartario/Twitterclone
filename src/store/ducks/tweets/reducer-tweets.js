@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action) => {
   switch(type) {
     case ActionTypes.HELLO:
       return {...state, hello: `hello new`};
-    case ActionTypes.SET_TWEETS:
+    case ActionTypes.SET_TWEETS:      
       return {...state, items: payload, loadingStatus: loadingStatus.LOADED};
     case ActionTypes.SET_LOADING:
       return {...state, loadingStatus: loadingStatus.LOADING};

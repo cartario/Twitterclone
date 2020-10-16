@@ -15,7 +15,7 @@ function App() {
 
   React.useEffect(()=>{
     dispatch(Operation.fetchTweets());
-  }, [dispatch]);
+  }, [dispatch]);  
   
   return (    
       <div className="App">

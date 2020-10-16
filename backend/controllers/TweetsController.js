@@ -50,6 +50,63 @@ class TweetsController {
       })
     }
   }
+
+  async show(req, res){
+    try{
+      const tweetId = req.params.id
+      
+      if(!isValidId(tweetId)){        
+        res.status(401).send();
+        return;
+      }
+
+      const tweet = await TweetsModel.findById(tweetId).exec();
+      res.send({
+        status: 'success',
+        data: tweet
+      })
+
+      res.send();
+    }
+    catch(error){
+      res.json({
+        status: 'error',
+        message: error
+      })
+    }
+  }
+
+  async remove(req, res){
+    
+    try {
+      const tweetId = req.params.id;
+      
+
+      if(!isValidId(tweetId)){
+        res.status(401).send();
+        return;
+      }
+
+      const tweet = await TweetsModel.findByIdAndDelete(tweetId);
+      
+      if(!tweet){
+        res.send({
+          message: 'tweet does not exist'
+        });
+        return;
+      }
+
+      res.send({
+        status: 'success'
+      });      
+    }
+    catch(error){
+      res.send({
+        status: 'error',
+        message: error
+      })
+    }
+  }
 };
 
 export const TweetsCtrl = new TweetsController();

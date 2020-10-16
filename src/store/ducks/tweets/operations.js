@@ -7,7 +7,8 @@ export const Operation = {
     dispatch(ActionCreator.fetchTweets());
     return axios.get("/tweets")
     .then((res)=>{  
-      const data = res.data.data;         
+      const data = res.data.data;
+         
       dispatch(ActionCreator.setTweets(data));      
     })
     .catch((err)=>{
@@ -19,11 +20,11 @@ export const Operation = {
     const data = {
       text: text,
       _id: Math.random().toString(36).substr(2),
-      user: {
-        "fullName": "Lang Miles",
-        "userName": "shawn",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
-      },
+      
+        fullName: "Lang Miles",
+        userName: "shawn",
+        avatarUrl: "https://source.unsplash.com/random/100x100?2",
+      
       postUrl: "https://source.unsplash.com/random/500x500?2"
     };    
     dispatch(ActionCreator.setLoadingAddTweet(addTweetLoadingStatus.LOADING));    

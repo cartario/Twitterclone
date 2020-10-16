@@ -29,6 +29,8 @@ app.get('/users/verify', UserCtrl.verify);
 
 app.get('/tweets', TweetsCtrl.index);
 app.post('/tweets', TweetsCtrl.create);
+app.get('/tweets/:id', TweetsCtrl.show);
+app.delete('/tweets/:id', TweetsCtrl.remove);
 
 app.get('/tags', (req,res)=>{
   res.send([

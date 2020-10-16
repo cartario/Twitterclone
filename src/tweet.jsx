@@ -10,6 +10,11 @@ import SendIcon from '@material-ui/icons/SendOutlined';
 import {Link} from 'react-router-dom';
 
 const Tweet = ({classes, text, user, id}) => {
+  
+  if(!user){
+    return null;
+  }
+  
   return (
     
     <li className={classes.tweetsItem}>

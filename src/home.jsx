@@ -220,7 +220,7 @@ const Home = (props) => {
             </Paper>            
             <ul className={classes.tweetsList}>
               <Route path="/home" exact>
-                {isLoaded ? tweets.map((tweet)=>
+                {isLoaded ? tweets.map((tweet)=> 
                   <Tweet key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} id={tweet._id}/>
                 ) : <Preloader />}
               </Route>

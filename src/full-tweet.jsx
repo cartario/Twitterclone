@@ -23,7 +23,6 @@ const FullTweet = (props) => {
 
   useEffect(()=>{
     dispatch(Operation.fetchFullTweet(id));
-
     return () =>{
       dispatch(ActionCreator.setFullTweet(undefined));
     }

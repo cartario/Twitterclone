@@ -32,6 +32,8 @@ const UserSchema = new Schema({
   },
   about: String,
   website: String
+},{
+  timestamps: true
 });
 
 UserSchema.set('toJSON', {

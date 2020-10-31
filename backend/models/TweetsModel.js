@@ -13,6 +13,8 @@ const TweetsSchema = new Schema ({
     required: true,
     type: String    
   }     
+}, {
+  timestamps: true
 });
 
 export const TweetsModel = model('Tweets', TweetsSchema);

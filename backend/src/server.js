@@ -29,6 +29,7 @@ app.get('/users/verify', UserCtrl.verify);
 
 app.get('/tweets', TweetsCtrl.index);
 app.post('/tweets', TweetsCtrl.create);
+app.patch('/tweets/:id', TweetsCtrl.update);
 app.get('/tweets/:id', TweetsCtrl.show);
 app.delete('/tweets/:id', TweetsCtrl.remove);
 

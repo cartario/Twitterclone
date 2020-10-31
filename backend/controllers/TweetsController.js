@@ -1,7 +1,4 @@
 import {TweetsModel} from '../models/TweetsModel';
-import {validationResult} from 'express-validator';
-import { generateMD5 } from '../utils/generateHash';
-import {sendMail} from '../utils/sendMail';
 import mongoose from 'mongoose';
 
 const isValidId = mongoose.Types.ObjectId.isValid;
@@ -24,7 +21,7 @@ class TweetsController {
   }
 
   async create(req, res){
-    console.log(req.body)
+    
     try {
       const data = {              
         text: req.body.text,
@@ -95,6 +92,40 @@ class TweetsController {
         });
         return;
       }
+
+      res.send({
+        status: 'success'
+      });      
+    }
+    catch(error){
+      res.send({
+        status: 'error',
+        message: error
+      })
+    }
+  }
+
+  async update(req, res){
+    
+    try {
+      const tweetId = req.params.id;      
+
+      if(!isValidId(tweetId)){
+        res.status(401).send();
+        return;
+      }
+
+      const tweet = await TweetsModel.findById(tweetId);
+      
+      if(!tweet){
+        res.send({
+          message: 'tweet does not exist'
+        });
+        return;
+      }
+
+      tweet.text = req.body.text;
+      await tweet.save();
 
       res.send({
         status: 'success'

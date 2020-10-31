@@ -7,6 +7,7 @@ import express from 'express';
 import {UserCtrl} from '../controllers/UserController';
 import {TweetsCtrl} from '../controllers/TweetsController';
 import {registerValidations} from '../validations/register';
+import {createTweetValidation} from '../validations/tweetValidation';
 import {passport} from '../core/passport';
 
 const app = express();
@@ -28,8 +29,8 @@ app.get('/users/verify', UserCtrl.verify);
 // app.delete('/users/:id', UserCtrl.delete);
 
 app.get('/tweets', TweetsCtrl.index);
-app.post('/tweets', TweetsCtrl.create);
-app.patch('/tweets/:id', TweetsCtrl.update);
+app.post('/tweets', createTweetValidation, TweetsCtrl.create);
+app.patch('/tweets/:id', createTweetValidation, TweetsCtrl.update);
 app.get('/tweets/:id', TweetsCtrl.show);
 app.delete('/tweets/:id', TweetsCtrl.remove);
 

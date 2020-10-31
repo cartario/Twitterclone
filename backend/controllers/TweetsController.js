@@ -1,4 +1,5 @@
 import {TweetsModel} from '../models/TweetsModel';
+import {validationResult} from 'express-validator';
 import mongoose from 'mongoose';
 
 const isValidId = mongoose.Types.ObjectId.isValid;
@@ -21,7 +22,12 @@ class TweetsController {
   }
 
   async create(req, res){
-    
+    const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        res.status(400).json({ status: 'error', errors: errors.array()});
+        return;
+      }
+      
     try {
       const data = {              
         text: req.body.text,
@@ -108,6 +114,12 @@ class TweetsController {
   async update(req, res){
     
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        res.status(400).json({ status: 'error', errors: errors.array()});
+        return;
+      }
+
       const tweetId = req.params.id;      
 
       if(!isValidId(tweetId)){

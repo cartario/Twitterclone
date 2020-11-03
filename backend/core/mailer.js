@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-
+const dotenv = require('dotenv').config();
 
 const options = {
   host: process.env.NODEMAILER_HOST || "smtp.mailtrap.io",

@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-dotenv.config();
+const dotenv = require('dotenv').config();
 import '../core/db';
 
 import express from 'express';

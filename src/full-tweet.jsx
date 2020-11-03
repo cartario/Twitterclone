@@ -12,8 +12,11 @@ import Avatar from '@material-ui/core/Avatar';
 import CommentIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import SendIcon from '@material-ui/icons/SendOutlined';
+import {formatDate} from '../src/utils';
+import {format} from 'date-fns';
 
 const FullTweet = (props) => {
+  
   const {classes} = props;
   const {id} = useParams();
 
@@ -22,6 +25,7 @@ const FullTweet = (props) => {
   const dispatch = useDispatch();  
 
   useEffect(()=>{
+    
     dispatch(Operation.fetchFullTweet(id));
     return () =>{
       dispatch(ActionCreator.setFullTweet(undefined));
@@ -43,6 +47,8 @@ const FullTweet = (props) => {
           <div>
             <b>{user.fullName}</b><br/>
             <span className={classes.tweetsUserName}>{user.userName}</span>
+            <span className={classes.tweetsUserName}>-</span>
+              <span className={classes.tweetsUserName}>{formatDate(new Date(tweet.createdAt))} назад</span>
           </div>
         </div>           
 

@@ -15,7 +15,7 @@ export const Operation = {
       dispatch(ActionCreator.setLoading());
       throw err;
     });
-  },
+  },  
   fetchAddTweet: (text) => (dispatch) => {    
     const data = {
       text: text,
@@ -30,7 +30,7 @@ export const Operation = {
     dispatch(ActionCreator.setLoadingAddTweet(addTweetLoadingStatus.LOADING));    
     return axios.post("/tweets/", data)
     .then((res)=> {      
-      dispatch(ActionCreator.addTweet(res.data));      
+      dispatch(ActionCreator.addTweet(res.data.data));      
     })
     .catch((err)=>{      
       dispatch(ActionCreator.setLoadingAddTweet(addTweetLoadingStatus.ERROR));

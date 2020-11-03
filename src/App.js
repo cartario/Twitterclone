@@ -11,10 +11,10 @@ import {Operation} from './store/ducks/tweets/operations';
 
 function App() { 
   const dispatch = useDispatch();
-  const tweets = useSelector(Selector.getTweets);
+  const tweets = useSelector(Selector.getTweets);  
 
   React.useEffect(()=>{
-    dispatch(Operation.fetchTweets());
+    dispatch(Operation.fetchTweets());    
   }, [dispatch]);  
   
   return (    

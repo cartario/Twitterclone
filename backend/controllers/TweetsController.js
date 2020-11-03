@@ -7,7 +7,7 @@ const isValidId = mongoose.Types.ObjectId.isValid;
 class TweetsController {
   async index(req, res){
     try {
-      const tweets = await TweetsModel.find({}).exec();
+      const tweets = await TweetsModel.find({}).populate('User').exec();
       res.json({
         status: 'success',
         data: tweets
@@ -67,9 +67,7 @@ class TweetsController {
       res.send({
         status: 'success',
         data: tweet
-      })
-
-      res.send();
+      })      
     }
     catch(error){
       res.json({

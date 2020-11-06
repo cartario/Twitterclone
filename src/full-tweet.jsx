@@ -14,6 +14,7 @@ import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import SendIcon from '@material-ui/icons/SendOutlined';
 import {formatDate} from '../src/utils';
 import {format} from 'date-fns';
+import ruLang from 'date-fns/locale/ru';
 
 const FullTweet = (props) => {
   
@@ -58,6 +59,10 @@ const FullTweet = (props) => {
 
         <div style={{textAlign: 'center'}}>
           <img alt="postImg" src={tweet.postUrl}/>
+          <div>
+          <span className={classes.tweetsUserName}>{format(new Date(tweet.createdAt), 'hh:mm')} </span>
+          <span className={classes.tweetsUserName}>{format(new Date(tweet.createdAt), 'd-MMM-y', {locale: ruLang})}</span>
+          </div>
           <div className={classes.fullTweetControls}>
             <IconButton className={classes.tweetIconButton}>
               <CommentIcon className={classes.tweetIcon}/>

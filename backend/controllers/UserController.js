@@ -124,6 +124,7 @@ class UserController {
       res.status(500).send();
     }
   }
+  
 };
 
 export const UserCtrl = new UserController();

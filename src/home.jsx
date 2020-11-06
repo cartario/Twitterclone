@@ -108,8 +108,17 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  tweetsUserWrapper : {
+    display: 'flex'
+  },
   tweetsUser: {
+    flex: 1,
     fontSize: 14,
+  },
+  tweetsUserIcon: {
+    '& svg path' : {
+      fill: theme.palette.primary.main
+    }    
   },
   tweetsUserName: {
     color: grey[500],

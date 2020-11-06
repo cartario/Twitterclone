@@ -185,6 +185,9 @@ const useStyles = makeStyles((theme) => ({
     width: `80%`,
     margin: '0 auto',
   },
+  date: {
+    marginTop: "30px"
+  }
 }));
 
 const Home = (props) => {

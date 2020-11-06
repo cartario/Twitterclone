@@ -6,6 +6,7 @@ export const ActionTypes = {
   ADD_FETCH_TWEET: `tweets/ADD_FETCH_TWEET`,
   ADD_TWEET: `tweets/ADD_TWEET`,
   ADD_TWEET_LOADING_STATUS: `tweets/ADD_TWEET_LOADING_STATUS`,
+  DELETE_TWEET: `tweets/DELETE_TWEET`,
 };
 
 export const ActionCreator = {
@@ -33,6 +34,10 @@ export const ActionCreator = {
 
   setLoadingAddTweet: (payload) => ({
     type: ActionTypes.ADD_TWEET_LOADING_STATUS,
+    payload
+  }),
+  deleteTweet: (payload) => ({
+    type: ActionTypes.DELETE_TWEET,
     payload
   }),
 };

@@ -14,7 +14,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditIcon from '@material-ui/icons/Edit';
-import axios from 'axios';
+import { Operation } from './store/ducks/tweets/operations';
+import {useDispatch} from 'react-redux';
+import {format} from 'date-fns';
+import ruLang from 'date-fns/locale/ru';
 
 const options = [
   <>
@@ -30,6 +33,7 @@ const options = [
 const ITEM_HEIGHT = 48;
 
 const Tweet = ({ classes, text, user, id, date }) => {  
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -44,11 +48,10 @@ const Tweet = ({ classes, text, user, id, date }) => {
     event.stopPropagation();
     event.preventDefault();
 
-    const target = event.currentTarget.childNodes[1].data.trim();
-    
-    //сделать operation
+    const target = event.currentTarget.childNodes[1].data.trim();    
+   
     if(target==='Удалить'){
-      axios.delete(`/tweets/${id}`)
+      dispatch(Operation.deleteTweet(id));
     }
   };
 
@@ -112,6 +115,10 @@ const Tweet = ({ classes, text, user, id, date }) => {
               </div>
             </div>
             <Typography variant="body1">{text}</Typography>
+            <div className={classes.date}>
+              <span className={classes.tweetsUserName}>{format(date, 'hh:mm')} </span>
+              <span className={classes.tweetsUserName}>{format(date, 'd-MMM-y', {locale: ruLang})}</span>
+            </div>
             <div className={classes.tweetControls}>
               <IconButton className={classes.tweetIconButton}>
                 <CommentIcon className={classes.tweetIcon} />

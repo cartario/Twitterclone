@@ -2,6 +2,7 @@ export const ActionTypes = {
   SET_FULL_TWEET: `fulltweet/SET_FULL_TWEET`,
   SET_LOADING: `fulltweet/SET_LOADING`,
   FETCH_FULL_TWEET: `fulltweet/FETCH_FULL_TWEET`,
+  
 };
 
 export const ActionCreator = {
@@ -15,6 +16,5 @@ export const ActionCreator = {
   }),
   fetchFullTweet: () => ({
     type: ActionTypes.FETCH_FULL_TWEET,    
-  })
-
+  }),  
 };

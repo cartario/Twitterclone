@@ -36,6 +36,8 @@ export const reducer = (state = initialState, action) => {
       return {...state, items: [payload, ...state.items], addTweetLoadingStatus: addTweetLoadingStatus.NEVER};
     case ActionTypes.ADD_TWEET_LOADING_STATUS:      
       return {...state, addTweetLoadingStatus: payload};
+    case ActionTypes.DELETE_TWEET:
+      return {...state, items: [...state.items.filter((item)=> item._id!==payload)]};
     default:
       return state;
   }  

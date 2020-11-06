@@ -37,4 +37,10 @@ export const Operation = {
       throw err;
     });
   },
+  deleteTweet: (id) => (dispatch) => {
+    dispatch(ActionCreator.deleteTweet(id));
+    return axios.delete(`/tweets/${id}`)
+    .then((res)=>console.log(res))
+    .catch((err)=>{throw err});
+  }
 };

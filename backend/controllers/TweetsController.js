@@ -80,11 +80,10 @@ class TweetsController {
   async remove(req, res){
     
     try {
-      const tweetId = req.params.id;
-      
+      const tweetId = req.params.id;      
 
       if(!isValidId(tweetId)){
-        res.status(401).send();
+        res.status(401).send({message: 'невалидный id'});
         return;
       }
 
@@ -102,6 +101,7 @@ class TweetsController {
       });      
     }
     catch(error){
+      
       res.send({
         status: 'error',
         message: error

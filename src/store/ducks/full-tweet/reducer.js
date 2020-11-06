@@ -21,7 +21,7 @@ export const reducer = (state = initialState, action) => {
     case ActionTypes.SET_LOADING:
       return {...state, loadingStatus: loadingStatus.LOADING};
     case ActionTypes.FETCH_FULL_TWEET:      
-      return {...state, fullTweet: undefined, loadingStatus: loadingStatus.LOADING};
+      return {...state, fullTweet: undefined, loadingStatus: loadingStatus.LOADING};    
     default:
       return state;
   }  

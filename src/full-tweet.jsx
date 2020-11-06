@@ -59,7 +59,7 @@ const FullTweet = (props) => {
 
         <div style={{textAlign: 'center'}}>
           <img alt="postImg" src={tweet.postUrl}/>
-          <div>
+          <div className={classes.date}>
           <span className={classes.tweetsUserName}>{format(new Date(tweet.createdAt), 'hh:mm')} </span>
           <span className={classes.tweetsUserName}>{format(new Date(tweet.createdAt), 'd-MMM-y', {locale: ruLang})}</span>
           </div>

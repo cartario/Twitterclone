@@ -1,28 +1,25 @@
-const dotenv = require('dotenv').config();
+import express from 'express';
 import '../core/db';
 
-import express from 'express';
-
+import {AuthCtrl} from '../controllers/AuthController';
 import {UserCtrl} from '../controllers/UserController';
 import {TweetsCtrl} from '../controllers/TweetsController';
-import {registerValidations} from '../validations/register';
+import {registerValidation, registerValidations} from '../validations/register';
 import {createTweetValidation} from '../validations/tweetValidation';
 import {passport} from '../core/passport';
 
+const dotenv = require('dotenv').config();
 const app = express();
 
 app.use(express.json());
-app.use(passport.initialize());
+// app.use(passport.initialize());
+
+app.post('/auth/register', registerValidation, AuthCtrl.register);
 
 app.get('/users', UserCtrl.index);
 app.get('/users/:id', UserCtrl.show);
-app.post('/users', registerValidations, UserCtrl.create);
-app.post('/auth/signin',
-  passport.authenticate('local'),
-  (req, res)=> {
-    console.log(`hey`)
-    res.json(req.user);    
-  });
+// app.post('/users', registerValidations, UserCtrl.create);
+
 app.get('/users/verify', UserCtrl.verify);
 // app.patch('/users/:id', UserCtrl.update);
 // app.delete('/users/:id', UserCtrl.delete);

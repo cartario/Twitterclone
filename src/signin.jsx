@@ -68,8 +68,6 @@ const useStyles = makeStyles((theme)=>({
 export default (props)=> {
   const classes = useStyles();
 
-  
-
   return (
     <div className={classes.wrapper}>
       <section className={classes.blueSide}>
@@ -98,7 +96,7 @@ export default (props)=> {
         <div className={classes.loginSideWrapper} style={{textAlign: `left`}}>          
           <TwitterIcon color="primary"/>          
           <Typography variant="h3">Title</Typography>
-          <Typography variant="h4">SmallSmaller titleSmaller titleer title</Typography>          
+          <Typography variant="h4">SmallSmaller titleSmaller titleer title</Typography>       
           <SignUpModal title={`Зарегистрироваться`} classes={classes}/>      
           <SignInModal title={`Войти`} classes={classes}/>
         </div>

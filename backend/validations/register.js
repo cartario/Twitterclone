@@ -1,4 +1,10 @@
-import {body} from 'express-validator';
+import {check, body} from 'express-validator';
+
+export const registerValidation = [
+  check('email', 'Неверный email').isEmail().exists(),
+  check('password', 'Минимальная длина пароля не менее 6 символов').isLength({min: 6}).exists(),
+  check('username', 'Минимальная длина никнейма не менее 3 символов').isString().isLength({min: 3}).exists(),
+];
 
 export const registerValidations = [
   body('email', 'Введите e-mail').isEmail().withMessage('неверная почта').isLength({
@@ -18,3 +24,5 @@ export const registerValidations = [
     max: 40
   }).withMessage('От 6 до 40 символов')
 ];
+
+

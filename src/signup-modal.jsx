@@ -9,23 +9,34 @@ import { FormControl } from '@material-ui/core';
 import { FormGroup } from '@material-ui/core';
 import { Box } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import useHttp from './hooks/http.hook'
+import useHttp from './hooks/http.hook';
+
+const initialState = {
+  username: "",
+  email: "",
+  password: ""
+};
+
+const backendValidationMessage = (error)=>{
+  if(typeof error!=='string' && !!error){    
+  return error.map((item, i)=><span style={{color: 'red', fontSize: '10px'}} key={i}>{item.msg}</span>);
+  }
+return <span style={{color: 'red', fontSize: '10px'}} >{error}</span>
+};
 
 export default ({classes, title}) => {
-  const {request, error, loading} = useHttp(); 
+  const {request, error, loading, clearError} = useHttp(); 
   const [data, setData] = React.useState(false); 
   const [open, setOpen] = React.useState(false);
-  const [form, setForm] = React.useState({
-    username: "",
-    email: "",
-    password: ""
-  });
+  const [form, setForm] = React.useState(initialState);  
 
   const handleRegister = async (e)=> {
     e.preventDefault();
     try {
       const response = await request('/auth/register', 'post', form); 
-      setData(true);    
+      setData(true);
+      clearError();
+      setOpen(false);    
     }
     catch(err){}      
   }
@@ -44,15 +55,15 @@ export default ({classes, title}) => {
   };
 
   const handleClose = () => {
-    if(error){
-      setOpen(false);
-    }    
+    setOpen(false);
+    setForm({...form, ...initialState});
+    clearError();
   }; 
 
   return ( <>
       <Button className={classes.button} fullWidth  color="primary" variant="contained" onClick={handleClickOpen}>{title}</Button> 
       <Dialog  open={open} onClose={handleClose} aria-labelledby="form-dialog-title">  
-      <form onSubmit={handleRegister}>            
+                  
         <Box textAlign="right">
           <CloseIcon color="primary" onClick={handleClose}/>
         </Box>
@@ -69,6 +80,7 @@ export default ({classes, title}) => {
                 onChange={handleChange}
                 value={form.username}
                 error={!!error}
+                helperText=""
               />
               <TextField
                 autoFocus                
@@ -88,18 +100,17 @@ export default ({classes, title}) => {
                 fullWidth
                 onChange={handleChange}
                 value={form.password}
-                error={!!error}
+                error={!!error}                
               />
             </FormGroup>                
           </FormControl>          
         </DialogContent>
         <DialogActions>          
-          <Button disabled={form.password.length<6} type="submit" className={classes.signUpButton} fullWidth onClick={handleClose} color="primary" variant="contained">
+          <Button disabled={form.password.length<0} className={classes.signUpButton} fullWidth onClick={handleRegister} color="primary" variant="contained">
             Далее
           </Button>
-        </DialogActions>
-        </form>
-        {error&&JSON.stringify(error)}        
+        </DialogActions>        
+        {error&&backendValidationMessage(error)}        
       </Dialog>         
     </>
   );
